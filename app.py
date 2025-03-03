@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Query, Path
 from typing import List, Optional
 
-description = """
+description = """ #опис
 ChimichangApp API glory to Ukraine!. 🚀
 
 ## Items
@@ -33,7 +33,7 @@ app = FastAPI(title="Putinloh Zelenskiy top",
 )
 
 
-@app.get('/q/{items_id}', summary='Looking for objekt in List')
+@app.get('/q/{items_id}', summary='Looking for objekt in List') #роутер з списком
 async def index(
         qu: Optional[List[str]] = Query(
             None,
@@ -49,11 +49,11 @@ async def index(
     return {'query': qu, 'item_id': _id}
 
 
-@app.get("/users/", tags=["users"])
+@app.get("/users/", tags=["users"]) #роутер з юзерами
 async def get_users():
     return [{"name": "Harry"}, {"name": "Ron"}]
 
 
-@app.get("/items/", tags=["items"])
+@app.get("/items/", tags=["items"]) #роутер з юзерами 2
 async def get_items():
     return [{"name": "wand"}, {"name": "flying broom"}]
